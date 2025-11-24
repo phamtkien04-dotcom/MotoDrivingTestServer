@@ -8,7 +8,7 @@
         public int GiaiDoan { get; set; }
         public void send()
         {
-
+            future/socket
         }
     }
 }
