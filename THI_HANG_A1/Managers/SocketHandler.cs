@@ -10,6 +10,8 @@ namespace THI_HANG_A1.Managers
         private TcpClient _client;
         private NetworkStream _stream;
         private Thread _receiveThread;
+        public string IPAddress { get; set; }
+        public int IPPort { get; set; }
 
 
         public bool IsConnected => _client != null && _client.Connected;
@@ -37,14 +39,17 @@ namespace THI_HANG_A1.Managers
 
                 // Bắt đầu Thread nhận dữ liệu
                 StartReceiveThread();
-                //}
-                return true;
 
+                return true;
             }
             catch (Exception)
             {
                 return false;
             }
+        }
+        public bool Connect()
+        {
+            return Connect(IPAddress, IPPort);
         }
         // ================================================================
         // NGẮT KẾT NỐI

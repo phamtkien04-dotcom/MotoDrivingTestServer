@@ -142,6 +142,7 @@
     <Compile Include="Managers\AudioManager.cs" />
     <Compile Include="Managers\ExamDataManager.cs" />
     <Compile Include="Managers\SerialManager.cs" />
+    <Compile Include="Managers\SocketHandler.cs" />
     <Compile Include="MCDV2A1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
