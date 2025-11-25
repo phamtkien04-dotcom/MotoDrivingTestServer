@@ -113,6 +113,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\QuanLyXe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QuanLyXe.Designer.cs">
+      <DependentUpon>QuanLyXe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\ExcelLoader.cs" />
     <Compile Include="Khaibao\chuanbi.cs" />
     <Compile Include="Khaibao\Dangthi.cs" />
@@ -121,6 +133,7 @@
     <Compile Include="Managers\AudioManager.cs" />
     <Compile Include="Managers\ExamDataManager.cs" />
     <Compile Include="Managers\SerialManager.cs" />
+    <Compile Include="Managers\SocketHandler.cs" />
     <Compile Include="MCDV2A1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,6 +147,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QuanLyXe.resx">
+      <DependentUpon>QuanLyXe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
