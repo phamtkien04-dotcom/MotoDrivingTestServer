@@ -1,10 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+using System.ComponentModel;
 using THI_HANG_A1.Forms;
 using THI_HANG_A1.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Data;
+using System.Windows.Forms;
+
 
 namespace THI_HANG_A1
+
+
+
+
+        
 {
     public partial class QuanLyXe : Form
     {
@@ -17,7 +26,6 @@ namespace THI_HANG_A1
             xecontrol = new List<MotoView>();
             InitializeComponent();
         }
-
         private void QuanLyXe_Load(object sender, EventArgs e)
         {
 
