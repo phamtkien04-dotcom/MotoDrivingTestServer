@@ -29,26 +29,26 @@ namespace THI_HANG_A1.Models
 
         public void connect()
         {
-            if (socketConn.Connect(IPAdress, Port))
-            {
-                // Lắng nghe dữ liệu từ ESP32
-                socketConn.OnDataReceived += (data) =>
-                {
+            //if (socketConn.Connect(IPAdress, Port))
+            //{
+            //    // Lắng nghe dữ liệu từ ESP32
+            //    socketConn.OnDataReceived += (data) =>
+            //    {
 
-                    //this.Invoke(new Action(() =>
-                    //{
-                    //    txtLog.Text += "ESP32: " + data + Environment.NewLine;
-                    //}));
-                };
+            //        //this.Invoke(new Action(() =>
+            //        //{
+            //        //    txtLog.Text += "ESP32: " + data + Environment.NewLine;
+            //        //}));
+            //    };
 
-                socketConn.OnDisconnected += () =>
-                {
-                    //this.Invoke(new Action(() =>
-                    //{
-                    //    txtLog.Text += "Mất kết nối ESP32 !!!\n";
-                    //}));
-                };
-            }
+            //    socketConn.OnDisconnected += () =>
+            //    {
+            //        //this.Invoke(new Action(() =>
+            //        //{
+            //        //    txtLog.Text += "Mất kết nối ESP32 !!!\n";
+            //        //}));
+            //    };
+            //}
         }
         public void disconnect() { socketConn.Disconnect(); }
 
