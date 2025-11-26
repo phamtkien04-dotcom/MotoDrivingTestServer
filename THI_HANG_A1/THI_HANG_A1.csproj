@@ -128,11 +128,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserControl1.cs">
+    <Compile Include="Forms\MotoView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="Forms\MotoView.Designer.cs">
+      <DependentUpon>MotoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\YardView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\YardView.Designer.cs">
+      <DependentUpon>YardView.cs</DependentUpon>
     </Compile>
 	  <Compile Include="Forms\QuanLyXe.cs">
 		  <SubType>Form</SubType>
@@ -183,14 +189,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-	  <EmbeddedResource Include="Forms\QuanLyXe.resx">
-		  <DependentUpon>QuanLyXe.cs</DependentUpon>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="Forms\UserControl1.resx">
-		  <DependentUpon>UserControl1.cs</DependentUpon>
-	  </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\QuanLyXe.resx">
+      <DependentUpon>QuanLyXe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MotoView.resx">
+      <DependentUpon>MotoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\YardView.resx">
+      <DependentUpon>YardView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -31351,8 +31351,8 @@ namespace THI_HANG_A1.MCDV2A1DataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[CameraLog] ([ErrorID], [TimeOcur], [Paramater], [Note]) VALUES" +
-                " (@ErrorID, @TimeOcur, @Paramater, @Note);\nSELECT ID, ErrorID, TimeOcur, Paramat" +
-                "er, Note FROM CameraLog WHERE (ID = SCOPE_IDENTITY())";
+                " (@ErrorID, @TimeOcur, @Paramater, @Note);\r\nSELECT ID, ErrorID, TimeOcur, Parama" +
+                "ter, Note FROM CameraLog WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ErrorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ErrorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TimeOcur", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TimeOcur", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -31752,8 +31752,8 @@ SELECT ID, ErrorID, TimeOcur, Paramater, Note FROM CameraLog WHERE (ID = @ID)";
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Centers] ([Fullname], [Code], [Parents], [UseParents]) VALUES " +
-                "(@Fullname, @Code, @Parents, @UseParents);\nSELECT ID, Fullname, Code, Parents, U" +
-                "seParents FROM Centers WHERE (ID = SCOPE_IDENTITY())";
+                "(@Fullname, @Code, @Parents, @UseParents);\r\nSELECT ID, Fullname, Code, Parents, " +
+                "UseParents FROM Centers WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fullname", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fullname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -32714,7 +32714,7 @@ SELECT ID, Fullname, Code, Parents, UseParents FROM Centers WHERE (ID = @ID)";
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Devices] ([ID], [Class], [IPAddress]) VALUES (@ID, @Class, @IP" +
-                "Address);\nSELECT ID, Class, IPAddress FROM Devices WHERE (ID = @ID)";
+                "Address);\r\nSELECT ID, Class, IPAddress FROM Devices WHERE (ID = @ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Class", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Class", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -33786,8 +33786,8 @@ SELECT ID, Type, Session, DeviceID, Mode, Mark, Time_Ocur, Duration, GhiChu, Las
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Events] ([SessionID], [Type], [Time], [Parameter]) VALUES (@Se" +
-                "ssionID, @Type, @Time, @Parameter);\nSELECT ID, SessionID, Type, Time, Parameter " +
-                "FROM Events WHERE (ID = SCOPE_IDENTITY())";
+                "ssionID, @Type, @Time, @Parameter);\r\nSELECT ID, SessionID, Type, Time, Parameter" +
+                " FROM Events WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SessionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SessionID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -34283,9 +34283,9 @@ SELECT ID, ExamID, Number, Class, Name, DateOfBirth, IDCardNo, Address, Classifi
                 "i)) AND ((@IsNull_Kotraloi = 1 AND [Kotraloi] IS NULL) OR ([Kotraloi] = @Origina" +
                 "l_Kotraloi)) AND ((@IsNull_Device_ID = 1 AND [Device_ID] IS NULL) OR ([Device_ID" +
                 "] = @Original_Device_ID)) AND ((@IsNull_Times = 1 AND [Times] IS NULL) OR ([Time" +
-                "s] = @Original_Times)));\nSELECT ID, ExamID, Number, Class, Name, DateOfBirth, ID" +
-                "CardNo, Address, Classified, StateLT, TypeCar, TenCSDT, Traloidung, Traloisai, K" +
-                "otraloi, Device_ID, Times FROM Examinees WHERE (ID = @ID)";
+                "s] = @Original_Times)));\r\nSELECT ID, ExamID, Number, Class, Name, DateOfBirth, I" +
+                "DCardNo, Address, Classified, StateLT, TypeCar, TenCSDT, Traloidung, Traloisai, " +
+                "Kotraloi, Device_ID, Times FROM Examinees WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExamID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExamID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -35345,8 +35345,8 @@ SELECT ID, ExamID, Number, Class, Name, DateOfBirth, IDCardNo, Address, Classifi
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ExamLogs] ([ExamID], [Time], [Type], [Comment], [Username]) VA" +
-                "LUES (@ExamID, @Time, @Type, @Comment, @Username);\nSELECT ID, ExamID, Time, Type" +
-                ", Comment, Username FROM ExamLogs WHERE (ID = SCOPE_IDENTITY())";
+                "LUES (@ExamID, @Time, @Type, @Comment, @Username);\r\nSELECT ID, ExamID, Time, Typ" +
+                "e, Comment, Username FROM ExamLogs WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExamID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExamID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -36421,8 +36421,8 @@ SELECT ID, Name, Date, Organizer, Partners, TypeLoad, FileList FROM Exams WHERE 
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Faults] ([ID], [FullName], [ShortName], [Subtraction], [TestID" +
-                "]) VALUES (@ID, @FullName, @ShortName, @Subtraction, @TestID);\nSELECT ID, FullNa" +
-                "me, ShortName, Subtraction, TestID FROM Faults WHERE (ID = @ID)";
+                "]) VALUES (@ID, @FullName, @ShortName, @Subtraction, @TestID);\r\nSELECT ID, FullN" +
+                "ame, ShortName, Subtraction, TestID FROM Faults WHERE (ID = @ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -36852,8 +36852,8 @@ SELECT ID, FullName, ShortName, Subtraction, TestID FROM Faults WHERE (ID = @ID)
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Lights] ([ID], [Offset], [GreenDuration], [YellowDuration], [R" +
                 "edDuration]) VALUES (@ID, @Offset, @GreenDuration, @YellowDuration, @RedDuration" +
-                ");\nSELECT ID, Offset, GreenDuration, YellowDuration, RedDuration FROM Lights WHE" +
-                "RE (ID = @ID)";
+                ");\r\nSELECT ID, Offset, GreenDuration, YellowDuration, RedDuration FROM Lights WH" +
+                "ERE (ID = @ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Offset", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Offset", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -37285,9 +37285,9 @@ SELECT ID, Offset, GreenDuration, YellowDuration, RedDuration FROM Lights WHERE 
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Sensors] ([ID], [FullName], [ShortName], [Index], [Disabled], " +
-                "[Visible]) VALUES (@ID, @FullName, @ShortName, @Index, @Disabled, @Visible);\nSEL" +
-                "ECT ID, FullName, ShortName, [Index], Disabled, Visible FROM Sensors WHERE (ID =" +
-                " @ID)";
+                "[Visible]) VALUES (@ID, @FullName, @ShortName, @Index, @Disabled, @Visible);\r\nSE" +
+                "LECT ID, FullName, ShortName, [Index], Disabled, Visible FROM Sensors WHERE (ID " +
+                "= @ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -38913,8 +38913,8 @@ SELECT ID, ExamineeID, DeviceID, StartTime, Duration, Time, Mark FROM Sessions W
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tests] ([ID], [FullName], [ShortName], [Index], [Index2], [Ind" +
-                "ex3]) VALUES (@ID, @FullName, @ShortName, @Index, @Index2, @Index3);\nSELECT ID, " +
-                "FullName, ShortName, [Index], Index2, Index3 FROM Tests WHERE (ID = @ID)";
+                "ex3]) VALUES (@ID, @FullName, @ShortName, @Index, @Index2, @Index3);\r\nSELECT ID," +
+                " FullName, ShortName, [Index], Index2, Index3 FROM Tests WHERE (ID = @ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -39373,8 +39373,8 @@ SELECT ID, FullName, ShortName, [Index], Index2, Index3 FROM Tests WHERE (ID = @
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Users] ([Username], [Password], [Permission]) VALUES (@Usernam" +
-                "e, @Password, @Permission);\nSELECT ID, Username, Password, Permission FROM Users" +
-                " WHERE (ID = SCOPE_IDENTITY())";
+                "e, @Password, @Permission);\r\nSELECT ID, Username, Password, Permission FROM User" +
+                "s WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
