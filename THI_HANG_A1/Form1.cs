@@ -10,7 +10,6 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using System.Xml.Linq;
-using THI_HANG_A1.Khaibao;
 using THI_HANG_A1.Managers;
 using THI_HANG_A1.Models;
 
@@ -35,8 +34,8 @@ namespace THI_HANG_A1
             //dgvDangThi.DataSource = null;
             //dgvDangThi.Visible = false;
             GridThi();
-            dgvThi.AutoGenerateColumns=false;
-            dgvThi.DataSource =null;
+            dgvThi.AutoGenerateColumns = false;
+            dgvThi.DataSource = null;
 
             // 2. Khởi tạo các manager
             audioManager = new AudioManager();
@@ -298,7 +297,7 @@ namespace THI_HANG_A1
         }
 
         // Hàm rỗng cho designer
-        private void dgvDangThi_CellContentClick(object sender, DataGridViewCellEventArgs e) 
+        private void dgvDangThi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             x = new ThiSinhXml();
@@ -347,12 +346,6 @@ namespace THI_HANG_A1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            // MINHHIEU\\SQLEXPRESS
-=======
-
-            //  dshsjhj
->>>>>>> 34d50a777ea26efd3d7ec09e1aa9b93e0514b100
             // TODO: This line of code loads data into the 'mCDV2A1DataSet2.DBKySatHach' table. You can move, or remove it, as needed.
             this.dBKySatHachTableAdapter.Fill(this.mCDV2A1DataSet2.DBKySatHach);
             // GIỮ NGUYÊN ĐOẠN NÀY NHƯ BẠN YÊU CẦU
@@ -440,30 +433,30 @@ namespace THI_HANG_A1
         {
             //try
             //{
-                using (SqlConnection conn = new SqlConnection(cnn))
-                {
-                    conn.Open();
-                    string query = "SELECT SBD,Hodem,Ten,NgaySinh,SoCCCD,HangGPLX,QUOCTICH,AnhChanDung,MaDangKy,NoiCT,KySatHach FROM ThiSinhSH order by SBD";
+            using (SqlConnection conn = new SqlConnection(cnn))
+            {
+                conn.Open();
+                string query = "SELECT SBD,Hodem,Ten,NgaySinh,SoCCCD,HangGPLX,QUOCTICH,AnhChanDung,MaDangKy,NoiCT,KySatHach FROM ThiSinhSH order by SBD";
 
-                    da = new SqlDataAdapter(query, conn);
-                    dt = new DataTable();
-                    da.Fill(dt);
+                da = new SqlDataAdapter(query, conn);
+                dt = new DataTable();
+                da.Fill(dt);
 
-                    dgv.DataSource = dt;
-                }
+                dgv.DataSource = dt;
+            }
 
-                dgv.ReadOnly = false;
-                dgv.AllowUserToAddRows = true;
-                dgv.AllowUserToDeleteRows = true;
-                dgv.Columns[0].Width = 60;
+            dgv.ReadOnly = false;
+            dgv.AllowUserToAddRows = true;
+            dgv.AllowUserToDeleteRows = true;
+            dgv.Columns[0].Width = 60;
 
-                // Sau khi dt đã có dữ liệu -> nạp vào ExamManager
-                //NapDanhSachThiSinhTuSQLVaoExamManager();
+            // Sau khi dt đã có dữ liệu -> nạp vào ExamManager
+            //NapDanhSachThiSinhTuSQLVaoExamManager();
             //}
             //catch (Exception ex)
-           // {
+            // {
             //    MessageBox.Show("Lỗi tải dữ liệu: " + ex.Message);
-           // }
+            // }
         }
 
 
@@ -526,7 +519,7 @@ namespace THI_HANG_A1
             // Vòng lặp lưu ảnh ra ổ D (Code cũ của bạn)
             foreach (ThiSinhXml r in thiSinhXmls)
             {
-               // txtTmp.Text += r.SoBaoDanh + "    " + r.HoTen + "    " + r.NgaySinh + "\r\n";
+                // txtTmp.Text += r.SoBaoDanh + "    " + r.HoTen + "    " + r.NgaySinh + "\r\n";
 
                 if (!Directory.Exists("D:\\" + r.KySatHach))
                 {
@@ -739,7 +732,7 @@ namespace THI_HANG_A1
             }
         }
 
-      
+
         private void Nap5NguoiChuanBi(List<ThiSinhXml> listXml)
         {
             // Xóa danh sách chuẩn bị cũ
@@ -836,8 +829,8 @@ namespace THI_HANG_A1
             x.NgaySinh = dgv.Rows[i].Cells[3].Value?.ToString();
             x.SoCMT = dgv.Rows[i].Cells[4].Value?.ToString();
             x.HangGPLX = dgv.Rows[i].Cells[5].Value?.ToString();
-            x.AnhChanDung = dgv.Rows[i].Cells[7].Value?.ToString();  
-           
+            x.AnhChanDung = dgv.Rows[i].Cells[7].Value?.ToString();
+
         }
 
         private void chuotphaichonxe_Click(object sender, EventArgs e)
