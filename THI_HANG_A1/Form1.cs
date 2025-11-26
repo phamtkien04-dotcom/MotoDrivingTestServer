@@ -10,6 +10,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using System.Xml.Linq;
+using THI_HANG_A1.Forms;
 using THI_HANG_A1.Managers;
 using THI_HANG_A1.Models;
 
@@ -42,8 +43,8 @@ namespace THI_HANG_A1
             fxe = new QuanLyXe(xes);
             fxe.ShowDialog();
 
-            dgvDangThi.DataSource = null;
-            dgvDangThi.Visible = false;
+            //dgvDangThi.DataSource = null;
+            //dgvDangThi.Visible = false;
             //dgvDangThi.DataSource = null;
             //dgvDangThi.Visible = false;
             GridThi();

@@ -1,6 +1,4 @@
-﻿using THI_HANG_A1.Managers;
-
-namespace THI_HANG_A1.Models
+﻿namespace THI_HANG_A1.Models
 {
     public class Xe
     {
@@ -8,13 +6,6 @@ namespace THI_HANG_A1.Models
         public bool DangRanh { get; set; }
         public string SBDThiSinhHienTai { get; set; }
         public int GiaiDoan { get; set; }
-        public void disconnect() { socketConn.Disconnect(); }
-
-
-
-
-
-
 
     }
 }
