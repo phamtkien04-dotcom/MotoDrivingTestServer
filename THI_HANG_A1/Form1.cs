@@ -34,9 +34,6 @@ namespace THI_HANG_A1
             InitializeComponent();
             //dgvDangThi.DataSource = null;
             //dgvDangThi.Visible = false;
-            GridThi();
-            dgvThi.AutoGenerateColumns=false;
-            dgvThi.DataSource =null;
 
             // 2. Khởi tạo các manager
             audioManager = new AudioManager();
@@ -347,19 +344,15 @@ namespace THI_HANG_A1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            // MINHHIEU\\SQLEXPRESS
-=======
-
-            //  dshsjhj
->>>>>>> 34d50a777ea26efd3d7ec09e1aa9b93e0514b100
             // TODO: This line of code loads data into the 'mCDV2A1DataSet2.DBKySatHach' table. You can move, or remove it, as needed.
             this.dBKySatHachTableAdapter.Fill(this.mCDV2A1DataSet2.DBKySatHach);
             // GIỮ NGUYÊN ĐOẠN NÀY NHƯ BẠN YÊU CẦU
             //this.examineesTableAdapter.Fill(this.mCDV2A1DataSet.Examinees);
             LoadComboboxKySatHach();
             Loaf();                     // đọc từ SQL vào dgv + nạp vào ExamDataManager
-            dgvThi.AutoGenerateColumns = true;
+            dgvThi.AutoGenerateColumns = false; 
+            dgvThi.Columns.Clear();        
+            GridThi();
             dgvThi.DataSource = examManager.DanhSachDangThi;
             if (dgvThi.Columns["colThoiGian"] == null)
             {
