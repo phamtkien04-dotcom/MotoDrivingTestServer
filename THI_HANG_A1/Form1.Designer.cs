@@ -220,6 +220,7 @@
             // 
             // đóngToolStripMenuItem
             // 
+            this.đóngToolStripMenuItem.Image = global::THI_HANG_A1.Properties.Resources.icon_dong;
             this.đóngToolStripMenuItem.Name = "đóngToolStripMenuItem";
             this.đóngToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.đóngToolStripMenuItem.Text = "Đóng ";
@@ -233,6 +234,7 @@
             // 
             // InputXML
             // 
+            this.InputXML.Image = global::THI_HANG_A1.Properties.Resources.icon_print;
             this.InputXML.Name = "InputXML";
             this.InputXML.Size = new System.Drawing.Size(169, 22);
             this.InputXML.Text = "Nhập dữ liệu XML";
@@ -240,6 +242,7 @@
             // 
             // xemLogKhóaThiToolStripMenuItem
             // 
+            this.xemLogKhóaThiToolStripMenuItem.Image = global::THI_HANG_A1.Properties.Resources.icon_xemlog;
             this.xemLogKhóaThiToolStripMenuItem.Name = "xemLogKhóaThiToolStripMenuItem";
             this.xemLogKhóaThiToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.xemLogKhóaThiToolStripMenuItem.Text = "Xem log khóa thi";
@@ -258,6 +261,7 @@
             // 
             // xemTrướcKhiInToolStripMenuItem
             // 
+            this.xemTrướcKhiInToolStripMenuItem.Image = global::THI_HANG_A1.Properties.Resources.icon_previewPrint;
             this.xemTrướcKhiInToolStripMenuItem.Name = "xemTrướcKhiInToolStripMenuItem";
             this.xemTrướcKhiInToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.xemTrướcKhiInToolStripMenuItem.Text = "Xem trước khi in";
@@ -619,7 +623,7 @@
             this.splitContainer_Thi.Panel2.Controls.Add(this.dgvchitietloi);
             this.splitContainer_Thi.Panel2.Controls.Add(this.txtSerialLog);
             this.splitContainer_Thi.Size = new System.Drawing.Size(879, 479);
-            this.splitContainer_Thi.SplitterDistance = 170;
+            this.splitContainer_Thi.SplitterDistance = 169;
             this.splitContainer_Thi.SplitterWidth = 3;
             this.splitContainer_Thi.TabIndex = 1;
             // 
@@ -628,15 +632,17 @@
             this.dgvThi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvThi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThi.Location = new System.Drawing.Point(6, 20);
             this.dgvThi.Margin = new System.Windows.Forms.Padding(2);
             this.dgvThi.Name = "dgvThi";
             this.dgvThi.RowHeadersWidth = 51;
             this.dgvThi.RowTemplate.Height = 24;
-            this.dgvThi.Size = new System.Drawing.Size(869, 139);
+            this.dgvThi.Size = new System.Drawing.Size(870, 142);
             this.dgvThi.TabIndex = 2;
             this.dgvThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThi_CellContentClick);
+            this.dgvThi.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvThi_CellMouseDoubleClick);
             // 
             // lblDangThi
             // 
@@ -783,11 +789,11 @@
             // 
             // lblDiemTru
             // 
-            this.lblDiemTru.Location = new System.Drawing.Point(1, 92);
+            this.lblDiemTru.Location = new System.Drawing.Point(6, 92);
             this.lblDiemTru.Margin = new System.Windows.Forms.Padding(2);
             this.lblDiemTru.Multiline = true;
             this.lblDiemTru.Name = "lblDiemTru";
-            this.lblDiemTru.Size = new System.Drawing.Size(878, 69);
+            this.lblDiemTru.Size = new System.Drawing.Size(868, 69);
             this.lblDiemTru.TabIndex = 102;
             // 
             // dgvchitietloi
@@ -796,12 +802,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvchitietloi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvchitietloi.Location = new System.Drawing.Point(2, 165);
+            this.dgvchitietloi.Location = new System.Drawing.Point(6, 165);
             this.dgvchitietloi.Margin = new System.Windows.Forms.Padding(2);
             this.dgvchitietloi.Name = "dgvchitietloi";
             this.dgvchitietloi.RowHeadersWidth = 51;
             this.dgvchitietloi.RowTemplate.Height = 24;
-            this.dgvchitietloi.Size = new System.Drawing.Size(553, 137);
+            this.dgvchitietloi.Size = new System.Drawing.Size(548, 144);
             this.dgvchitietloi.TabIndex = 100;
             // 
             // txtSerialLog
@@ -816,7 +822,7 @@
             this.txtSerialLog.Name = "txtSerialLog";
             this.txtSerialLog.ReadOnly = true;
             this.txtSerialLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSerialLog.Size = new System.Drawing.Size(323, 138);
+            this.txtSerialLog.Size = new System.Drawing.Size(323, 145);
             this.txtSerialLog.TabIndex = 99;
             this.txtSerialLog.Text = "--- LOG GIAO TIẾP SERIAL/SOCKET ---";
             // 
@@ -1087,8 +1093,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1155, 560);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
