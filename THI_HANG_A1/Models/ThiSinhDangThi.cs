@@ -8,6 +8,8 @@ namespace THI_HANG_A1.Models
 {
     internal class ThiSinhDangThi
     {
+        public bool? DaKiemTraXe { get; set; }   // null: vừa cấp xe, false: đã chuẩn bị, true: đã kiểm tra xong
+
         public string HoDem { get; set; }
         public string Ten { get; set; }
         public int SoBaoDanh { get; set; }
