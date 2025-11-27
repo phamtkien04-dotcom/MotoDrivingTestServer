@@ -120,141 +120,141 @@ namespace THI_HANG_A1
 
         #endregion
 
-        #region === NÚT ĐIỀU KHIỂN, LỖI ===
+        //#region === NÚT ĐIỀU KHIỂN, LỖI ===
 
-        /// <summary>
-        /// Giao xe cho thí sinh được chọn ở bảng CHUẨN BỊ THI
-        /// </summary>
+        ///// <summary>
+        ///// Giao xe cho thí sinh được chọn ở bảng CHUẨN BỊ THI
+        ///// </summary>
 
-        /// <summary>
-        /// Bắt đầu lượt thi cho thí sinh đang chọn trong bảng ĐANG THI
-        /// </summary>
-        private void btnBatDau_Click(object sender, EventArgs e)
-        {
-            if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
-            {
-                examManager.BatDauLuotThi(ts);
+        ///// <summary>
+        ///// Bắt đầu lượt thi cho thí sinh đang chọn trong bảng ĐANG THI
+        ///// </summary>
+        //private void btnBatDau_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //    {
+        //        examManager.BatDauLuotThi(ts);
 
-                if (!timerCapNhatThoiGian.Enabled)
-                    timerCapNhatThoiGian.Start();
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng CHỌN thí sinh trong bảng 'ĐANG THI' để bắt đầu.",
-                    "Chưa chọn thí sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        //        if (!timerCapNhatThoiGian.Enabled)
+        //            timerCapNhatThoiGian.Start();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Vui lòng CHỌN thí sinh trong bảng 'ĐANG THI' để bắt đầu.",
+        //            "Chưa chọn thí sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
 
-        private void btnKetThucLuot_Click(object sender, EventArgs e)
-        {
-            if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
-            {
-                var xacNhan = MessageBox.Show(
-                    $"Xác nhận kết thúc lượt thi của {ts.HoTen} với điểm số là {ts.DiemTongHop}?",
-                    "Xác nhận kết thúc", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //private void btnKetThucLuot_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //    {
+        //        var xacNhan = MessageBox.Show(
+        //            $"Xác nhận kết thúc lượt thi của {ts.HoTen} với điểm số là {ts.DiemTongHop}?",
+        //            "Xác nhận kết thúc", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (xacNhan == DialogResult.Yes)
-                {
-                    _ = examManager.KetThucLuotThiThuCong(ts);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn thí sinh cần kết thúc bài thi.",
-                    "Chưa chọn thí sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        //        if (xacNhan == DialogResult.Yes)
+        //        {
+        //            _ = examManager.KetThucLuotThiThuCong(ts);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Vui lòng chọn thí sinh cần kết thúc bài thi.",
+        //            "Chưa chọn thí sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
 
-        // Các nút lỗi (nhẹ/nặng) – GIỮ NGUYÊN, chỉ sửa grid thành dgvdangthii
+        //// Các nút lỗi (nhẹ/nặng) – GIỮ NGUYÊN, chỉ sửa grid thành dgvdangthii
 
-        private void btnLoiChamVach_Click(object sender, EventArgs e)
-        {
-            if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
-                examManager.GhiNhanLoiThuCong(ts, 5, $"Chạm vạch lần {ts.LoiChamVach + 1}", "ChamVach", t => t.LoiChamVach++);
-            else
-                MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
-        }
+        //private void btnLoiChamVach_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //        examManager.GhiNhanLoiThuCong(ts, 5, $"Chạm vạch lần {ts.LoiChamVach + 1}", "ChamVach", t => t.LoiChamVach++);
+        //    else
+        //        MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
+        //}
 
-        private void btnLoiChetMay_Click(object sender, EventArgs e)
-        {
-            if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
-                examManager.GhiNhanLoiThuCong(ts, 5, $"Chết máy lần {ts.LoiChetMay + 1}", "ChetMay", t => t.LoiChetMay++);
-            else
-                MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
-        }
+        //private void btnLoiChetMay_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //        examManager.GhiNhanLoiThuCong(ts, 5, $"Chết máy lần {ts.LoiChetMay + 1}", "ChetMay", t => t.LoiChetMay++);
+        //    else
+        //        MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
+        //}
 
-        private void btnLoiKhongXiNhan_Click(object sender, EventArgs e)
-        {
-            if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
-                examManager.GhiNhanLoiThuCong(ts, 5, $"Không xi nhan lần {ts.LoiKhongXiNhan + 1}", "KhongXiNhan", t => t.LoiKhongXiNhan++);
-            else
-                MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
-        }
+        //private void btnLoiKhongXiNhan_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //        examManager.GhiNhanLoiThuCong(ts, 5, $"Không xi nhan lần {ts.LoiKhongXiNhan + 1}", "KhongXiNhan", t => t.LoiKhongXiNhan++);
+        //    else
+        //        MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
+        //}
 
-        private async void btnLoiNgaDo_Click(object sender, EventArgs e)
-        {
-            if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
-            {
-                var xacNhan = MessageBox.Show(
-                    "Xác nhận thí sinh bị lỗi 'Ngã/đổ xe' và bị loại trực tiếp?",
-                    "Xác nhận lỗi loại", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        //private async void btnLoiNgaDo_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //    {
+        //        var xacNhan = MessageBox.Show(
+        //            "Xác nhận thí sinh bị lỗi 'Ngã/đổ xe' và bị loại trực tiếp?",
+        //            "Xác nhận lỗi loại", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (xacNhan == DialogResult.Yes)
-                {
-                    ts.LoiNgaDo = 1;
-                    await examManager.LoaiTrucTiep(ts, ts.DiemTongHop, "Ngã/đổ xe (Loại trực tiếp)", "DoXe");
-                }
-            }
-            else
-                MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
-        }
+        //        if (xacNhan == DialogResult.Yes)
+        //        {
+        //            ts.LoiNgaDo = 1;
+        //            await examManager.LoaiTrucTiep(ts, ts.DiemTongHop, "Ngã/đổ xe (Loại trực tiếp)", "DoXe");
+        //        }
+        //    }
+        //    else
+        //        MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
+        //}
 
-        private async void btnLoiSaiHinh_Click(object sender, EventArgs e)
-        {
-            if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
-            {
-                var xacNhan = MessageBox.Show(
-                    "Xác nhận thí sinh bị lỗi 'Chạy sai hình' và bị loại trực tiếp?",
-                    "Xác nhận lỗi loại", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        //private async void btnLoiSaiHinh_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //    {
+        //        var xacNhan = MessageBox.Show(
+        //            "Xác nhận thí sinh bị lỗi 'Chạy sai hình' và bị loại trực tiếp?",
+        //            "Xác nhận lỗi loại", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (xacNhan == DialogResult.Yes)
-                {
-                    ts.LoiChaySaiHinh = 1;
-                    await examManager.LoaiTrucTiep(ts, ts.DiemTongHop, "Chạy sai hình (Loại trực tiếp)", "SaiHinh");
-                }
-            }
-            else
-                MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
-        }
+        //        if (xacNhan == DialogResult.Yes)
+        //        {
+        //            ts.LoiChaySaiHinh = 1;
+        //            await examManager.LoaiTrucTiep(ts, ts.DiemTongHop, "Chạy sai hình (Loại trực tiếp)", "SaiHinh");
+        //        }
+        //    }
+        //    else
+        //        MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
+        //}
 
-        private async void btnLoiQuaTocDo_Click(object sender, EventArgs e)
-        {
-            if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
-            {
-                var xacNhan = MessageBox.Show(
-                    "Xác nhận thí sinh bị lỗi 'Vượt quá tốc độ' và bị loại trực tiếp?",
-                    "Xác nhận lỗi loại", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        //private async void btnLoiQuaTocDo_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //    {
+        //        var xacNhan = MessageBox.Show(
+        //            "Xác nhận thí sinh bị lỗi 'Vượt quá tốc độ' và bị loại trực tiếp?",
+        //            "Xác nhận lỗi loại", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (xacNhan == DialogResult.Yes)
-                {
-                    ts.LoiQuaTocDo = 1;
-                    await examManager.LoaiTrucTiep(ts, ts.DiemTongHop, "Vượt quá tốc độ (Loại trực tiếp)", "VuotTocDo");
-                }
-            }
-            else
-                MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
-        }
+        //        if (xacNhan == DialogResult.Yes)
+        //        {
+        //            ts.LoiQuaTocDo = 1;
+        //            await examManager.LoaiTrucTiep(ts, ts.DiemTongHop, "Vượt quá tốc độ (Loại trực tiếp)", "VuotTocDo");
+        //        }
+        //    }
+        //    else
+        //        MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
+        //}
 
-        private void btnQuaVongSo8_Click(object sender, EventArgs e)
-        {
-            if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
-                examManager.QuaVongSo8(ts);
-            else
-                MessageBox.Show("Vui lòng chọn thí sinh trong bảng 'ĐANG THI'.",
-                    "Chưa chọn thí sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
+        //private void btnQuaVongSo8_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //        examManager.QuaVongSo8(ts);
+        //    else
+        //        MessageBox.Show("Vui lòng chọn thí sinh trong bảng 'ĐANG THI'.",
+        //            "Chưa chọn thí sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //}
 
-        #endregion
+        //#endregion
 
         #region === TIMER CẬP NHẬT THỜI GIAN ===
 
@@ -267,37 +267,37 @@ namespace THI_HANG_A1
                 {
                     var cell = row.Cells["colThoiGian"];
 
-                    // --- [ĐOẠN SỬA QUAN TRỌNG] ---
-                    // Nếu trạng thái đã là "Đạt" hoặc "Không đạt" (do ấn kết thúc hoặc rớt) -> Dừng tính giờ
+                    // 1. Nếu trạng thái đã là "Đạt" hoặc "Không đạt" -> Dừng cập nhật (Giữ nguyên số giờ cũ)
                     if (ts.TrangThai == "Đạt" || ts.TrangThai == "Không đạt")
                     {
-                        // Giữ nguyên thời gian hiện tại, không cập nhật thêm nữa
                         continue;
                     }
-                    // -----------------------------
 
-                    // Cập nhật trạng thái rớt tự động nếu điểm dưới 80
+                    // 2. Cập nhật trạng thái rớt tự động nếu điểm dưới 80
                     if (ts.DiemConLai < 80)
                     {
                         ts.TrangThai = "Không đạt";
-                        cell.Value = "Dừng thi"; // Hoặc giữ nguyên thời gian lúc rớt
+                        cell.Value = "Dừng thi";
                         continue;
                     }
 
-                    // Tính thời gian trôi qua
-                    if (ts.GioBatDau != DateTime.MinValue)
+                    // --- [ĐOẠN SỬA CHÍNH] ---
+                    // Thêm điều kiện: ts.TrangThai == "Đang thi"
+                    // Nghĩa là: Chỉ khi nào bấm nút "Bắt đầu" (chuyển trạng thái sang Đang thi) thì mới tính giờ.
+                    if (ts.TrangThai == "Đang thi" && ts.GioBatDau != DateTime.MinValue)
                     {
                         TimeSpan thoiGianTroiQua = DateTime.Now - ts.GioBatDau;
                         cell.Value = thoiGianTroiQua.ToString(@"mm\:ss");
                     }
                     else
                     {
+                        // Các trạng thái khác (Mới cấp xe, Chuẩn bị...) thì chưa hiện giờ
                         cell.Value = "--:--";
                     }
+                    // ------------------------
                 }
             }
-        }
-
+        }//dhdjksgjd
 
 
 
