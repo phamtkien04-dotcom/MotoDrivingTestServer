@@ -10,6 +10,7 @@ namespace THI_HANG_A1.Models
     {
         public bool? DaKiemTraXe { get; set; }   // null: vừa cấp xe, false: đã chuẩn bị, true: đã kiểm tra xong
 
+        public string TrangThai { get; set; }   // Đã cấp xe / Chuẩn bị thi / Đang thi / Đạt / Không đạt
         public string HoDem { get; set; }
         public string Ten { get; set; }
         public int SoBaoDanh { get; set; }
@@ -19,7 +20,7 @@ namespace THI_HANG_A1.Models
         public string Xe { get; set; } = "";
 
         // --- Trạng thái bài thi ---
-        public string TrangThai { get; set; } = "Chưa bắt đầu";
+        //public string TrangThai { get; set; } = "Chưa bắt đầu";
         public DateTime GioBatDau { get; set; }
         public DateTime GioKetThuc { get; set; }
 
