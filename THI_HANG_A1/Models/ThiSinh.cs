@@ -22,5 +22,6 @@ namespace THI_HANG_A1.Models
         public int LoiNgaDo { get; set; }
         public int LoiChaySaiHinh { get; set; }
         public int LoiQuaTocDo { get; set; }
+        public string AnhChanDung { get; set; }
     }
 }

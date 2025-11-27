@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using THI_HANG_A1.Forms;
 using THI_HANG_A1.Models;
 
-namespace THI_HANG_A1
+namespace THI_HANG_A1.Forms
 {
     public partial class QuanLyXe : Form
     {
@@ -31,6 +30,7 @@ namespace THI_HANG_A1
                 xecontrol.Add(new MotoView(xes[i]));
                 flowLayoutPanel1.Controls.Add(xecontrol[i]);
             }
+            // this is stable version 1
 
 
         }

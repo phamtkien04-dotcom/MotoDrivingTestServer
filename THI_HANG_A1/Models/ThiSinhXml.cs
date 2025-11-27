@@ -9,8 +9,10 @@ namespace THI_HANG_A1.Models
     public class ThiSinhXml
     {
             public string MaDangKy { get; set; }
-            public string HoTen { get; set; }
-            public string NgaySinh { get; set; }
+        public string HoTen { get; set; }
+        public string Hodem { get; set; }
+        public string Ten { get; set; }
+        public string NgaySinh { get; set; }
             public string SoCMT { get; set; }
             public string AnhChanDung { get; set; }
             public byte[] AnhBytes { get; set; }

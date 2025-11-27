@@ -26,8 +26,13 @@ namespace THI_HANG_A1.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+<<<<<<< HEAD
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-I8EBD1S\\SQLEXPRESS;Initial Catalog=MCDV2A1;Persist Security I" +
             "nfo=True;User ID=sa;Password=123;TrustServerCertificate=True")]
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PC_NET\\SQLEXPRESS;Initial Catalog=MCDV2A1;Persist Security Info=True;" +
+            "User ID=sa;Password=123")]
+>>>>>>> upstream/feature/socket
         public string Conn {
             get {
                 return ((string)(this["Conn"]));
