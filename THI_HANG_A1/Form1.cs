@@ -15,7 +15,6 @@ using THI_HANG_A1.Forms;
 using THI_HANG_A1.Helpers;
 using THI_HANG_A1.Managers;
 using THI_HANG_A1.Models;
-using System.Drawing;
 
 namespace THI_HANG_A1
 {
@@ -410,22 +409,22 @@ namespace THI_HANG_A1
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'mCDV2A1DataSet2.DBKySatHach' table. You can move, or remove it, as needed.
-            this.dBKySatHachTableAdapter.Fill(this.mCDV2A1DataSet2.DBKySatHach);
-            // GIỮ NGUYÊN ĐOẠN NÀY NHƯ BẠN YÊU CẦU
-            //this.examineesTableAdapter.Fill(this.mCDV2A1DataSet.Examinees);
-            LoadComboboxKySatHach();
-            Loaf();                     // đọc từ SQL vào dgv + nạp vào ExamDataManager
-            dgvThi.AutoGenerateColumns = false;
-            dgvThi.DataSource = examManager.DanhSachDangThi;
-            if (dgvThi.Columns["colThoiGian"] == null)
-            {
-                dgvThi.Columns.Add(new DataGridViewTextBoxColumn()
-                {
-                    Name = "colThoiGian",
-                    HeaderText = "Thời gian",
-                    ReadOnly = true
-                });
-            }
+            //this.dBKySatHachTableAdapter.Fill(this.mCDV2A1DataSet2.DBKySatHach);
+            //// GIỮ NGUYÊN ĐOẠN NÀY NHƯ BẠN YÊU CẦU
+            ////this.examineesTableAdapter.Fill(this.mCDV2A1DataSet.Examinees);
+            //LoadComboboxKySatHach();
+            //Loaf();                     // đọc từ SQL vào dgv + nạp vào ExamDataManager
+            //dgvThi.AutoGenerateColumns = false;
+            //dgvThi.DataSource = examManager.DanhSachDangThi;
+            //if (dgvThi.Columns["colThoiGian"] == null)
+            //{
+            //    dgvThi.Columns.Add(new DataGridViewTextBoxColumn()
+            //    {
+            //        Name = "colThoiGian",
+            //        HeaderText = "Thời gian",
+            //        ReadOnly = true
+            //    });
+            //}
         }
 
         /// <summary>
@@ -1512,7 +1511,7 @@ namespace THI_HANG_A1
             var ts = dgvThi.Rows[_currentRowIndex].DataBoundItem as ThiSinhDangThi;
             if (ts == null) return;
 
-            Capxe frm = new Capxe(xes ,ts.SoBaoDanh, ts.HangGPLX);
+            Capxe frm = new Capxe(xes, ts.SoBaoDanh, ts.HangGPLX);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
 

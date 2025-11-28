@@ -215,7 +215,7 @@
             this.mởToolStripMenuItem.Name = "mởToolStripMenuItem";
             this.mởToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.mởToolStripMenuItem.Text = "Mở";
-            this.mởToolStripMenuItem.Click += new System.EventHandler(this.mởToolStripMenuItem_Click);
+            //this.mởToolStripMenuItem.Click += new System.EventHandler(this.mởToolStripMenuItem_Click);
             // 
             // đóngToolStripMenuItem
             // 
@@ -358,7 +358,7 @@
             this.kiểmTraKếtNốiXeToolStripMenuItem.Name = "kiểmTraKếtNốiXeToolStripMenuItem";
             this.kiểmTraKếtNốiXeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kiểmTraKếtNốiXeToolStripMenuItem.Text = "Kiểm tra kết nối xe";
-            this.kiểmTraKếtNốiXeToolStripMenuItem.Click += new System.EventHandler(this.kiểmTraKếtNốiXeToolStripMenuItem_Click);
+            //this.kiểmTraKếtNốiXeToolStripMenuItem.Click += new System.EventHandler(this.kiểmTraKếtNốiXeToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
