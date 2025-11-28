@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using THI_HANG_A1.Helpers;
 using THI_HANG_A1.Managers;
 using THI_HANG_A1.Models;
 
@@ -85,12 +86,13 @@ namespace THI_HANG_A1.Forms
 
             if (moto.Connected)
             {
-                this.BackColor = System.Drawing.Color.LightSkyBlue;
+                button2.BackColor = System.Drawing.Color.LightSkyBlue;
             }
             else
             {
-                this.BackColor = System.Drawing.SystemColors.MenuBar;
+                button2.BackColor = System.Drawing.SystemColors.MenuBar;
             }
+            this.BackColor = MotoHelper.GetMotoColor(moto);
 
         }
 
