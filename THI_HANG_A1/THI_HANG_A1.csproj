@@ -152,6 +152,8 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BaiThiHelper.cs" />
+    <Compile Include="Helpers\FaultDefinitions.cs" />
     <Compile Include="Helpers\MotoHelper.cs" />
     <Compile Include="Helpers\ExcelLoader.cs" />
     <Compile Include="Khaibao\chuanbi.cs" />
@@ -167,6 +169,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MCDV2A1DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChiTietLoi.cs" />
     <Compile Include="Models\LoiViPham.cs" />
     <Compile Include="Models\Moto.cs" />
     <Compile Include="Models\ThiSinh.cs" />

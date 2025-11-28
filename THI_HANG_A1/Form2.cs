@@ -123,9 +123,9 @@ namespace THI_HANG_A1
             Button btn = sender as Button;
             Moto moto = btn.Tag as Moto;
 
-            if (moto.Mes != "READY")
+            if (moto.Status != 0xc1)
             {
-                MessageBox.Show($"Xe {moto.Name} đang ở trạng thái {moto.Mes}.\nKhông thể cấp xe!",
+                MessageBox.Show($"Xe {moto.Name} đang không sẵn sàng.\nKhông thể cấp xe!",
                                 "Không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }

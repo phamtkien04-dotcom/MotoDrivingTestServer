@@ -12,15 +12,22 @@ namespace THI_HANG_A1.Helpers
     {
         public static Color GetMotoColor(Moto moto)
         {
-            switch (moto.Mes)
+            switch (moto.Status)
             {
-                case "READY": return Color.LightGreen;
-                case "RUNNING": return Color.Orange;
-                case "STOPPED": return Color.LightGray;
-                case "OFFLINE": return Color.Red;
-                default: return Color.White;
+                case 0xC1:   // READY
+                    return Color.LightGreen;
+
+                case 0xC2:   // RUNNING
+                    return Color.Orange;
+
+                case 0xC3:   // IDLE (rảnh)
+                    return Color.LightGray;
+
+                default:
+                    return Color.White;
             }
         }
+
     }
 
 }
