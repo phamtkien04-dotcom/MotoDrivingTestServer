@@ -153,7 +153,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBox1);
             this.Name = "MotoView";
-            this.Size = new System.Drawing.Size(612, 113);
+            this.Size = new System.Drawing.Size(755, 113);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

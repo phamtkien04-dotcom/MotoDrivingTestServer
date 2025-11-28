@@ -1089,7 +1089,7 @@ namespace THI_HANG_A1
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             fsan = new QLiSan(sanList);
-            fsan.Show();
+            fsan.ShowDialog();
 
         }
 

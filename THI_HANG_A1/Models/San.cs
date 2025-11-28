@@ -119,7 +119,9 @@ namespace THI_HANG_A1.Models
         // =============================================================
         private void SocketDataHandler(byte[] buffer, int len)
         {
-
+            FrameCnvert Test = new FrameCnvert();
+            Test.setFrame(buffer, len);
+            
             Mes = BitConverter.ToString(buffer, 0, len).Replace("-", " ");
 
 
