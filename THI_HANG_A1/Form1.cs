@@ -15,6 +15,7 @@ using THI_HANG_A1.Forms;
 using THI_HANG_A1.Helpers;
 using THI_HANG_A1.Managers;
 using THI_HANG_A1.Models;
+using System.Drawing;
 
 namespace THI_HANG_A1
 {
@@ -257,6 +258,17 @@ namespace THI_HANG_A1
         //    else
         //        MessageBox.Show("Vui lòng chọn thí sinh đang thi.", "Chưa chọn thí sinh");
         //}
+
+        //private void btnQuaVongSo8_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvThi.CurrentRow?.DataBoundItem is ThiSinh ts)
+        //        examManager.QuaVongSo8(ts);
+        //    else
+        //        MessageBox.Show("Vui lòng chọn thí sinh trong bảng 'ĐANG THI'.",
+        //            "Chưa chọn thí sinh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //}
+
+        //#endregion
 
         //private void btnQuaVongSo8_Click(object sender, EventArgs e)
         //{
@@ -908,10 +920,7 @@ namespace THI_HANG_A1
             DialogResult result = frm.ShowDialog();
 
             if (result != DialogResult.OK || frm.XeDuocChon == null)
-                return;
 
-            Moto xeChon = frm.XeDuocChon;
-            string soXe = xeChon.Name;
             int sbd = 0;
             string hang = "";
             string hoDem = "";
@@ -931,6 +940,36 @@ namespace THI_HANG_A1
                 MessageBox.Show("Dữ liệu thí sinh thiếu hoặc lỗi: " + ex.Message);
                 return;
             }
+
+            Moto xeChon = frm.XeDuocChon;
+            string soXe = xeChon.Name;
+            int sbd = 0;
+            string hang = "";
+            string hoDem = "";
+            string ten = "";
+
+            try
+            {
+                // Lấy dữ liệu theo tên cột trong SQL (An toàn tuyệt đối)
+                // Đảm bảo trong câu lệnh SQL SELECT có các cột này: SBD, HangGPLX, Hodem
+                sbd = Convert.ToInt32(drv["SBD"]);
+                hang = drv["HangGPLX"].ToString();
+                hoDem = drv["Hodem"].ToString();
+                ten = drv["Ten"].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dữ liệu thí sinh thiếu hoặc lỗi: " + ex.Message);
+                return;
+            }
+            // 3. Mở form cấp xe
+            Capxe frm = new Capxe(sbd, hang);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
+            // 4. Xử lý sau khi chọn xe từ Form Capxe
+            if (frm.i == 0) return; // Người dùng ấn Bỏ qua hoặc tắt form
+            string soXe = frm.i.ToString();
 
             // Kiểm tra trạng thái xe trong từ điển
             if (!trangThaiXe.ContainsKey(soXe))
