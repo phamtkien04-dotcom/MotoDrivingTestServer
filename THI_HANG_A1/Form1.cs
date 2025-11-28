@@ -1579,6 +1579,17 @@ namespace THI_HANG_A1
         }
         private BindingList<ChiTietLoi> dsChiTietLoi = new BindingList<ChiTietLoi>();
 
+        private void kiểmTraKếtNốiXeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fxe.ShowDialog();
+        }
+
+        private void kiemtraketnoisan_Click(object sender, EventArgs e)
+        {
+            fsan = new QLiSan(sanList);
+            fsan.Show();
+        }
+
         //private void InsertErrorToDatabase(int sbd, string ten, string xe, string suKien, int diemTru, string chiTiet)
         //{
         //    string sql = @"INSERT INTO ChiTietLoi (SoBaoDanh, Ten, Xe, ThoiGian, SuKien, DiemTru, ChiTiet)
