@@ -20,109 +20,146 @@ namespace THI_HANG_A1.Models
             PORT = port;
 
             socketConn = new SocketHandler();
-            socketConn.OnDataReceivedBytes += SocketDataHandler;  // nhận dạng Frame byte[]
+            socketConn.OnDataReceivedBytes += SocketDataHandler;
         }
 
-        // ===================  UI STATES =========================
         private void TriggerUI() => OnChanged?.Invoke();
 
+        // ================= STATES ======================
         public bool IsConnected { get; private set; }
 
-        public bool OngHoi { get => _ongHoi; set { _ongHoi = value; TriggerUI(); } }
-        private bool _ongHoi;
-        public bool Sensor1 { get => _sensor1; set { _sensor1 = value; TriggerUI(); } }
         private bool _sensor1;
-        public bool Sensor2 { get => _sensor2; set { _sensor2 = value; TriggerUI(); } }
+        public bool Sensor1 { get => _sensor1; set { _sensor1 = value; TriggerUI(); } }
+
         private bool _sensor2;
-        public bool Sensor3 { get => _sensor3; set { _sensor3 = value; TriggerUI(); } }
+        public bool Sensor2 { get => _sensor2; set { _sensor2 = value; TriggerUI(); } }
+
         private bool _sensor3;
-        public bool Sensor4 { get => _sensor4; set { _sensor4 = value; TriggerUI(); } }
+        public bool Sensor3 { get => _sensor3; set { _sensor3 = value; TriggerUI(); } }
+
         private bool _sensor4;
-        public bool Sensor5 { get => _sensor5; set { _sensor5 = value; TriggerUI(); } }
+        public bool Sensor4 { get => _sensor4; set { _sensor4 = value; TriggerUI(); } }
+
         private bool _sensor5;
-        public bool Sensor6 { get => _sensor6; set { _sensor6 = value; TriggerUI(); } }
+        public bool Sensor5 { get => _sensor5; set { _sensor5 = value; TriggerUI(); } }
+
         private bool _sensor6;
-        public bool Sensor7 { get => _sensor7; set { _sensor7 = value; TriggerUI(); } }
+        public bool Sensor6 { get => _sensor6; set { _sensor6 = value; TriggerUI(); } }
+
         private bool _sensor7;
-        public bool Sensor8 { get => _sensor8; set { _sensor8 = value; TriggerUI(); } }
+        public bool Sensor7 { get => _sensor7; set { _sensor7 = value; TriggerUI(); } }
+
         private bool _sensor8;
+        public bool Sensor8 { get => _sensor8; set { _sensor8 = value; TriggerUI(); } }
 
-        public string Mes { get => _Mes; set { _Mes = value; TriggerUI(); } }
-        private string _Mes;
+        private bool _onghoi;
+        public bool OngHoi { get => _onghoi; set { _onghoi = value; TriggerUI(); } }
+
+        private string _mes;
+        public string Mes { get => _mes; set { _mes = value; TriggerUI(); } }
 
 
-        // =============================================================
-        // CONNECT
-        // =============================================================
+        // ================= CONNECT ======================
         public void Connect()
         {
-            if (!socketConn.Connect(IP, PORT))
+            // XÓA SOCKET CŨ – BẮT BUỘC
+            if (socketConn != null)
             {
-                IsConnected = false;
-                TriggerUI();
-                return;
+                socketConn.OnDataReceivedBytes -= SocketDataHandler;
+                socketConn.Disconnect();
             }
 
-            IsConnected = true;
+            // TẠO SOCKETHOÀN TOÀN MỚI
+            socketConn = new SocketHandler();
+            socketConn.OnDataReceivedBytes += SocketDataHandler;
+
+            bool ok = socketConn.Connect(IP, PORT);
+
+            IsConnected = ok;
             TriggerUI();
         }
+
 
         public void Disconnect()
         {
-            socketConn.Disconnect();
+            if (socketConn != null)
+            {
+                socketConn.OnDataReceivedBytes -= SocketDataHandler;
+
+                try
+                {
+                    // GỬI 1 BYTE ĐỂ SERVER NHẬN BIẾT NGẮT KẾT NỐI
+                    socketConn.SendBytes(new byte[] { 0xFF });
+                }
+                catch { }
+
+                socketConn.Disconnect();
+            }
+
             IsConnected = false;
+
+            // RESET UI ngay lập tức
+            Sensor1 = Sensor2 = Sensor3 = Sensor4 = false;
+            Sensor5 = Sensor6 = Sensor7 = Sensor8 = false;
+
+            Mes = "DISCONNECTED";
+
             TriggerUI();
         }
 
-        // =============================================================
-        // PARSE ESP32 FRAME (10 BYTE)
-        // =============================================================
+
+
+
+        // ============== FRAME PARSER FOR ESP32 ================
         private void SocketDataHandler(byte[] buffer, int len)
         {
             if (len < 10) return;
-            if (buffer[0] != 0x30) return;           // START_BYTE ESP32
-            if (buffer[9] != 0x31) return;           // STOP_BYTE
 
-            byte key = buffer[1];       // trạng thái / event
-            byte type = buffer[2];       // GET/SET 32/33
-            byte id = buffer[3];       // esp32 ID
+            if (buffer[0] != 0x30) return;     // START_BYTE
+            if (buffer[9] != 0x31) return;     // STOP_BYTE
 
-            // GIẢI 4 BYTES DATA => 8 sensor bit
-            UInt32 value = (uint)(
-                (buffer[4] << 24) |
-                (buffer[5] << 16) |
-                (buffer[6] << 8) |
-                 buffer[7]
-            );
+            // Raw frame string
+            Mes = BitConverter.ToString(buffer, 0, len).Replace("-", " ");
 
-            byte crc = buffer[8];
+            byte key = buffer[1];
+            byte type = buffer[2];
+            byte id = buffer[3];
+
+            // Parse data (32-bit)
+            uint value =
+                ((uint)buffer[4] << 24) |
+                ((uint)buffer[5] << 16) |
+                ((uint)buffer[6] << 8) |
+                 buffer[7];
+
+            // CRC check
+            byte crcFrame = buffer[8];
             byte crcCalc = CRC8(buffer, 0, 8);
-            Mes = BitConverter.ToString(buffer, 0, len);
 
-            if (crc != crcCalc)
+            if (crcCalc != crcFrame)
             {
-                Mes += " ❌ CRC FAIL";
+                Mes += " ❌ CRC";
                 return;
             }
 
-            // =========== TÁCH 8 CẢM BIẾN TRONG VALUE =============
-            Sensor1 = (value & (1 << 0)) != 0;
-            Sensor2 = (value & (1 << 1)) != 0;
-            Sensor3 = (value & (1 << 2)) != 0;
-            Sensor4 = (value & (1 << 3)) != 0;
-            Sensor5 = (value & (1 << 4)) != 0;
-            Sensor6 = (value & (1 << 5)) != 0;
-            Sensor7 = (value & (1 << 6)) != 0;
-            Sensor8 = (value & (1 << 7)) != 0;
+            // ========== SENSOR BIT MAPPING ==============
+            // ESP32 tạo data bằng cách shift trước → sensor1 ở BIT 7
+            Sensor1 = (value & (1u << 0)) != 0;
+            Sensor2 = (value & (1u << 1)) != 0;
+            Sensor3 = (value & (1u << 2)) != 0;
+            Sensor4 = (value & (1u << 3)) != 0;
+            Sensor5 = (value & (1u << 4)) != 0;
+            Sensor6 = (value & (1u << 5)) != 0;
+            Sensor7 = (value & (1u << 6)) != 0;
+            Sensor8 = (value & (1u << 7)) != 0;
 
-            OngHoi = Sensor4;   // nếu bạn muốn sensor4 chính là ống hơi  
+            
 
             TriggerUI();
         }
 
-        // =============================================================
-        // CRC8 giống ESP32
-        // =============================================================
+
+        // ============= CRC8 giống hệt ESP32 ================
         private byte CRC8(byte[] data, int start, int len)
         {
             byte crc = 0x00;
@@ -135,7 +172,8 @@ namespace THI_HANG_A1.Models
                 {
                     bool msb = (crc & 0x80) != 0;
                     crc <<= 1;
-                    if (msb) crc ^= poly;
+                    if (msb)
+                        crc ^= poly;
                 }
             }
             return crc;
